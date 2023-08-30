@@ -1,6 +1,8 @@
+
 body{
   background-image: url('./asset/Background.png');
   background-repeat: no-repeat;
+  color: white;
 }
 .table-main{
   display: flex;
@@ -20,9 +22,16 @@ body{
 }
 
 .table-user{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 32px;
   width: 248px;
   height: 784px;
   background: rgba(6, 6, 6, 0.70);
+}
+.profile{
+  margin-left: 20px;
 }
 .monster-top{
   display: flex;
@@ -67,5 +76,5 @@ body{
 .monster-left{
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 50px;
 }
