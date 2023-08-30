@@ -55,14 +55,23 @@ let item = {
 }
 //ITEM-----------------------------------
 
-let userName = document.getElementById("userName");
-userName.innerText = "Test"
 
-let health = document.getElementById("health");
-health.innerText = human.health
 
-let gold = document.getElementById("gold");
-gold.innerText = human.gold
+function render() {
+    let nama = prompt("Silahkan masukkan nama user")
+    let userName = document.getElementById("userName");
+    userName.innerText = nama
 
-let power = document.getElementById("power");
-power.innerText = human.power
+    let health = document.getElementById("health");
+    health.innerText = human.health
+
+    let gold = document.getElementById("gold");
+    gold.innerText = human.gold
+
+    let power = document.getElementById("power");
+    power.innerText = human.power
+}
+
+render()
+
+
