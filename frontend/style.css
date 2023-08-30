@@ -1,0 +1,71 @@
+body{
+  background-image: url('./asset/Background.png');
+  background-repeat: no-repeat;
+}
+.table-main{
+  display: flex;
+  justify-content: center;
+  /* margin-top: 120px; */
+  margin: 120px auto;
+}
+
+.table-game{
+  width: 982px;
+  height: 784px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.40);
+}
+
+.table-user{
+  width: 248px;
+  height: 784px;
+  background: rgba(6, 6, 6, 0.70);
+}
+.monster-top{
+  display: flex;
+  gap: 23px;
+  justify-content: center;
+}
+.size-grid{
+  width: 154px;
+  height: 78px;
+  background: rgba(0, 0, 0, 0.40);
+}
+
+.monster-mid{
+  display: flex;
+  justify-content: center;
+  gap: 75px;
+}
+
+.fight{
+  display: flex;
+  gap: 150px;
+}
+
+.fight-left{
+  width: 244px;
+  height: 468px;
+  background: rgba(0, 0, 0, 0.40);
+}
+
+.fight-right{
+  width: 244px;
+  height: 468px;
+  background: rgba(0, 0, 0, 0.40);
+}
+
+.size-left{
+  width: 154px;
+  height: 78px;
+  background: rgba(0, 0, 0, 0.40);
+}
+
+.monster-left{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

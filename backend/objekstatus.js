@@ -50,3 +50,17 @@ let potion = {
     extraHealth: 1
 }
 //ITEM-----------------------------------
+
+
+// let object ={
+//   potion:{
+//     asdasd
+//   },
+//   senjata{
+
+//   }
+// }
+
+// let objectItem = {
+
+// }
