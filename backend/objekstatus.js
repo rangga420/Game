@@ -58,20 +58,22 @@ let item = {
 
 
 function render() {
-    let nama = prompt("Silahkan masukkan nama user")
-    let userName = document.getElementById("userName");
-    userName.innerText = nama
+  let nama = prompt("Silahkan masukkan nama user")
+  let userName = document.getElementById("userName");
+  userName.innerText = nama;
 
-    let health = document.getElementById("health");
-    health.innerText = human.health
+  let health = document.getElementById("health");
+  health.innerText = human.health;
 
-    let gold = document.getElementById("gold");
-    gold.innerText = human.gold
+  let gold = document.getElementById("gold");
+  gold.innerText = human.gold;
 
-    let power = document.getElementById("power");
-    power.innerText = human.power
+  let power = document.getElementById("power");
+  power.innerText = human.power;
 }
 
-render()
+window.addEventListener("load", function() {
+  render();
+});
 
 
