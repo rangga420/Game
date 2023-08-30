@@ -56,4 +56,7 @@ let item = {
 //ITEM-----------------------------------
 
 let userName = document.getElementById("userName");
+let health = document.getElementById("health");
+let gold = document.getElementById("gold");
+let power = document.getElementById("power");
 userName.innerText = "Test"
