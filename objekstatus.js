@@ -39,5 +39,14 @@ let boss = {
 //MONSTER--------------------------------
 
 //ITEM-----------------------------------
+let senjata = {
+    price: 30,
+    extraPower: 1
+}
+// PRICE 30 BIAR AWAL GAME GA LANGSUNG UPGRADE
 
+let potion = {
+    price: 10,
+    extraHealth: 1
+}
 //ITEM-----------------------------------
