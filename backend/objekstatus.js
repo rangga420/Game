@@ -10,22 +10,24 @@ JADI REWARD BATTLENYA LANGSUNG EXTRA POWER
 */
 
 //MONSTER--------------------------------
-let goblin = {
-    power: 2,
-    rewardGold: 5,
-    rewardPower: 1
-}
-
-let orc = {
-    power: 5,
-    rewardGold: 7,
-    rewardPower: 2
-}
-
-let undead = {
-    power: 7,
-    rewardGold: 10,
-    rewardPower: 4
+let monster = {
+    goblin: {
+        power: 2,
+        rewardGold: 5,
+        rewardPower: 1
+    },
+    
+    orc: {
+        power: 5,
+        rewardGold: 7,
+        rewardPower: 2
+    },
+    
+    undead: {
+        power: 7,
+        rewardGold: 10,
+        rewardPower: 4
+    }
 }
 
 /*
@@ -39,28 +41,16 @@ let boss = {
 //MONSTER--------------------------------
 
 //ITEM-----------------------------------
-let senjata = {
-    price: 30,
-    extraPower: 1
-}
-// PRICE 30 BIAR AWAL GAME GA LANGSUNG UPGRADE
+let item = {
+    // PRICE 30 BIAR AWAL GAME GA LANGSUNG UPGRADE
+    senjata: {
+        price: 30,
+        extraPower: 1
+    },
 
-let potion = {
-    price: 10,
-    extraHealth: 1
+    potion: {
+        price: 10,
+        extraHealth: 1
+    }
 }
 //ITEM-----------------------------------
-
-
-// let object ={
-//   potion:{
-//     asdasd
-//   },
-//   senjata{
-
-//   }
-// }
-
-// let objectItem = {
-
-// }
