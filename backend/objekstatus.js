@@ -186,6 +186,8 @@ function clickImage(event) {
           </div>
           `;
           addClass.insertAdjacentHTML('beforeend', powerBattleHTML);
+          let test = document.getElementById("weapon")
+          console.log(test)
           break
         }
         newImage.src = data[obj]['image'];
@@ -241,12 +243,22 @@ function combat(event) {
   updatePowerMon.innerHTML = powerMon
 }
 
-funtion
+// function buyPotion(event){
+
+// }
+
+function buyWeapon(event){
+  human['power']++
+  console.log(human['power'])
+}
 
 function main(){
   document.getElementById("toggleButton").addEventListener("click", clickImage);
   document.getElementById("battle").addEventListener("click", combat);
   document.getElementById("powerUser").innerHTML = human['power']
+  // document.getElementById("potion").addEventListener("click", buyPotion);
+  // console.log(test)
+  // document.getElementById("weapon").addEventListener("click", buyWeapon);
 }
 
 
