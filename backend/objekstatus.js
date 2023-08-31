@@ -187,6 +187,7 @@ function clickImage(event) {
           `;
           addClass.insertAdjacentHTML('beforeend', powerBattleHTML);
           let test = document.getElementById("weapon")
+          document.getElementById("weapon").addEventListener("click", buyWeapon);
           console.log(test)
           break
         }
