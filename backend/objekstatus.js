@@ -1,3 +1,47 @@
+let data = {
+  1:{
+    image: '../frontend/asset/goblin.svg'
+  },
+  2:{
+    image: 'foto'
+  },
+  3:{
+    image: '../frontend/asset/goblin.svg'
+  },
+  4:{
+    image: '../frontend/asset/goblin.svg'
+  },
+  5:{
+    image: '../frontend/asset/goblin.svg'
+  },
+  6:{
+    image: 'foto'
+  },
+  7:{
+    image: '../frontend/asset/ork.svg'
+  },
+  8:{
+    image: '../frontend/asset/ork.svg'
+  },
+  9:{
+    image: 'foto'
+  },
+  10:{
+    image: '../frontend/asset/undead.svg'
+  },
+  11:{
+    image: '../frontend/asset/undead.svg'
+  },
+  12:{
+    image: '../frontend/asset/undead.svg'
+  },
+  13:{
+    image: 'foto'
+  },
+  14:{
+    image: '../frontend/asset/dragon.svg'
+  },
+}
 
 let human = {
     health: 10,
@@ -73,6 +117,47 @@ function render() {
       power.innerText = human.power;
 }
 
+
+function clickImage(event) {
+  if (event.target.tagName === "IMG") {
+    let buttonId = event.target.parentElement.id;
+    let fightRight = document.getElementById('fight-right');
+    fightRight.innerHTML = '';
+    for(let obj in data){
+      
+      let newImage = document.createElement("img");
+      if (buttonId === obj) {
+        console.log(obj)
+        newImage.src = data[obj]['image'];
+        fightRight.appendChild(newImage);    
+      }
+    }
+//  else if (buttonId === "2") {
+//     //   newImage.src = "../frontend/asset/hutan.svg";
+//     // }
+
+  }
+}
+
+// function clickButton(){
+//   let a=document.getElementById('')
+// }
+
+function main(){
+  document.getElementById("toggleButton").addEventListener("click", clickImage);
+  // render();
+}
+
+function battle() {
+
+}
+
+window.addEventListener("load", function() {
+  main()
+});
+
+
+
 // function addImage(){
 //   let image = document.getElementById('fight-right')
 //   console.log(image)
@@ -108,37 +193,3 @@ let found = false
 //     fightRight.appendChild(newImage);
 //   }
 // });
-
-function clickImage(event) {
-  if (event.target.tagName === "IMG") {
-    let buttonId = event.target.parentElement.id;
-    let fightRight = document.getElementById('fight-right');
-    fightRight.innerHTML = '';
-    let newImage = document.createElement("img");
-    if (buttonId === "1") {
-      newImage.src = "../frontend/asset/shop.svg";
-    } else if (buttonId === "2") {
-      newImage.src = "../frontend/asset/hutan.svg";
-    }
-    fightRight.appendChild(newImage);
-  }
-}
-
-// function clickButton(){
-//   let a=document.getElementById('')
-// }
-
-function main(){
-  document.getElementById("toggleButton").addEventListener("click", clickImage);
-  // render();
-}
-
-function battle() {
-
-}
-
-window.addEventListener("load", function() {
-  main()
-});
-
-
