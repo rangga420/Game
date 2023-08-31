@@ -253,6 +253,23 @@ function combat(event) {
 
   let monsterTotal = document.getElementById("totalMonster") 
   monsterTotal.innerHTML = totalMonster(monsterPower, monsterInput)
+
+  let resultDisplay = document.getElementById("display")
+  let powerBattleHTML = `
+    
+      <div class="info">
+        <div>TOTAL HUMAN</div>
+        <div>vs</div>
+        <div>TOTAL GOBLIN</div>
+      </div>
+      <div class="result">
+        <div id="result">MENANG</div>
+        <div id="reward">GOLD + 5</div>
+      </div>
+
+`;  
+resultDisplay.insertAdjacentHTML('beforeend', powerBattleHTML);
+console.log(monsterRoll);
 }
 /// INI FUNCTION BATTLE
 
@@ -305,3 +322,9 @@ let found = false
 //     fightRight.appendChild(newImage);
 //   }
 // });
+
+
+
+
+
+
