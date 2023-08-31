@@ -96,7 +96,8 @@ let data = {
 let human = {
     health: 10,
     power: 5,
-    gold: 20
+    gold: 100
+    // DEFAULT 20 GOLD
 }
 
 /*
@@ -142,7 +143,6 @@ let item = {
         price: 30,
         extraPower: 1
     },
-
     potion: {
         price: 10,
         extraHealth: 1
@@ -174,8 +174,23 @@ function clickImage(event) {
     for(let obj in data){
       let newImage = document.createElement("img");
       if (buttonId == obj) {
+        let merc = data[obj]['image'].split('/')[3].split('.')[0]
+        if(merc === 'merchent'){
+          let addClass = document.getElementById('fight-right')
+          addClass.classList.add('right')
+          let powerBattleHTML = `
+          <div class="box-shop">
+            <img src="./asset/merchent.svg" alt="">
+            <button class="button-potion" id='potion'>BUY POTION (10G)</button>
+            <button class="button-weapon" id='weapon'>BUY WEAPON (30G)</button>
+          </div>
+          `;
+          addClass.insertAdjacentHTML('beforeend', powerBattleHTML);
+          break
+        }
         newImage.src = data[obj]['image'];
         fightRight.appendChild(newImage);
+        console.log()
         let powerBattleHTML = `
           <div class="powerBattle">
             <div class="power">Power: <span id="powerMonster">${data[obj]['monster']['power']}</span></div>
@@ -224,43 +239,9 @@ function combat(event) {
   updatePowerMan.innerHTML = powerMan
   let updatePowerMon = document.getElementById("totalMonster")
   updatePowerMon.innerHTML = powerMon
-
-
-
-
-
-
-  // let monsterRoll = document.getElementById("rollMonster")
-  // let monsterInput = rollMonster()
-  // monsterRoll.innerHTML = monsterInput
-
-  // let userRoll = document.getElementById("rollUser") 
-  // let userInput = rollUser()
-  // userRoll.innerHTML = userInput
-  
-  // let userTotal = document.getElementById("totalUser")
-  // userTotal.innerHTML = totalUser(humanPower, userInput)
-
-  // let monsterTotal = document.getElementById("totalMonster") 
-  // monsterTotal.innerHTML = totalMonster(monsterPower, monsterInput)
-
-  // let resultDisplay = document.getElementById("display")
-  // let powerBattleHTML = `
-  //     <div class="info">
-  //       <div>TOTAL HUMAN</div>
-  //       <div>vs</div>
-  //       <div>TOTAL GOBLIN</div>
-  //     </div>
-  //     <div class="result">
-  //       <div id="result">MENANG</div>
-  //       <div id="reward">GOLD + 5</div>
-  //     </div>
-  // `;  
-  // resultDisplay.insertAdjacentHTML('beforeend', powerBattleHTML);
-  // document.getElementById("battle").removeEventListener("click", combat);
-
 }
-/// INI FUNCTION BATTLE
+
+funtion
 
 function main(){
   document.getElementById("toggleButton").addEventListener("click", clickImage);
@@ -280,7 +261,7 @@ window.addEventListener("load", function() {
 //   let image = document.getElementById('fight-right')
 //   console.log(image)
 // }
-let found = false
+// let found = false
 // function addImageOnce() {
 //   let image = document.getElementById('fight-right');
 //   let newImage = document.createElement("img");
@@ -311,6 +292,35 @@ let found = false
 //     fightRight.appendChild(newImage);
 //   }
 // });
+
+ // let monsterRoll = document.getElementById("rollMonster")
+  // let monsterInput = rollMonster()
+  // monsterRoll.innerHTML = monsterInput
+
+  // let userRoll = document.getElementById("rollUser") 
+  // let userInput = rollUser()
+  // userRoll.innerHTML = userInput
+  
+  // let userTotal = document.getElementById("totalUser")
+  // userTotal.innerHTML = totalUser(humanPower, userInput)
+
+  // let monsterTotal = document.getElementById("totalMonster") 
+  // monsterTotal.innerHTML = totalMonster(monsterPower, monsterInput)
+
+  // let resultDisplay = document.getElementById("display")
+  // let powerBattleHTML = `
+  //     <div class="info">
+  //       <div>TOTAL HUMAN</div>
+  //       <div>vs</div>
+  //       <div>TOTAL GOBLIN</div>
+  //     </div>
+  //     <div class="result">
+  //       <div id="result">MENANG</div>
+  //       <div id="reward">GOLD + 5</div>
+  //     </div>
+  // `;  
+  // resultDisplay.insertAdjacentHTML('beforeend', powerBattleHTML);
+  // document.getElementById("battle").removeEventListener("click", combat);
 
 
 
