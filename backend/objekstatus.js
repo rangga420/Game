@@ -167,6 +167,7 @@ function render() {
       power.innerText = human.power;
 }
 
+var monsterPower = 0
 
 function clickImage(event) {
   if (event.target.tagName === "IMG") {
@@ -181,24 +182,87 @@ function clickImage(event) {
         let powerBattleHTML = `
           <div class="powerBattle">
             <div class="power">Power: ${data[obj]['monster']['power']}</div>
-            <div class="roll">Roll: 0</div>
-            <div class="totalPower">TotalPower: 0</div>
+            <div class="roll">Roll: <span id="rollMonster">0</span></div>
+            <div class="totalPower">TotalPower: <span id="totalMonster">0</span></div>
           </div>
         `;
         fightRight.insertAdjacentHTML('beforeend', powerBattleHTML);
+        monsterPower = data[obj]["monster"]["power"]
         break
       }
     }
   }
 }
+console.log(monsterPower)
+/// INI FUNCTION BATTLE
+// let user = {
+//   power: 5
+// }
+// let monster={
+//   power :3
+// }
+
+function rollUser(){
+  let randomNumber = Math.floor(Math.random()*6)+1
+  return randomNumber
+}
+
+function rollMonster(){
+  let randomNumber = Math.floor(Math.random()*6)+1
+  return randomNumber
+}
+
+// function battle(user , monster){
+  
+//   let userPower =battleuser(user)
+//   let monsterPower =battlemonster(monster)
+  
+//   console.log(userPower , monsterPower )
+//   if(userPower > monsterPower){
+//       return "Menang"
+//   }else if(userPower < monsterPower){
+//       return "Kalah"
+//   }else if(userPower === monsterPower){
+//       return 'Draw'
+//   }
+// }
+
+let humanPower = human["power"]
+
+function totalUser(humanPower, userRoll) {
+  let totalHuman = humanPower + userRoll
+  return totalHuman
+}
+
+function totalMonster(monsterPower, monsterRoll) {
+  let totalMonster = monsterPower + monsterRoll
+  return totalMonster
+}
+
+function combat(event) {
+  let monsterRoll = document.getElementById("rollMonster")
+  let monsterInput = rollMonster()
+  monsterRoll.innerHTML = monsterInput
+
+  let userRoll = document.getElementById("rollUser") 
+  let userInput = rollUser()
+  userRoll.innerHTML = userInput
+  
+  let userTotal = document.getElementById("totalUser")
+  userTotal.innerHTML = totalUser(humanPower, userInput)
+
+  let monsterTotal = document.getElementById("totalMonster") 
+  monsterTotal.innerHTML = totalMonster(monsterPower, monsterInput)
+}
+/// INI FUNCTION BATTLE
 
 function main(){
   document.getElementById("toggleButton").addEventListener("click", clickImage);
+  document.getElementById("battle").addEventListener("click", combat);
+  document.getElementById("powerUser").innerHTML = human["power"]
 }
 
-function battle() {
 
-}
 
 window.addEventListener("load", function() {
   main()

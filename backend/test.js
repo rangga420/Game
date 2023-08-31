@@ -11,7 +11,7 @@ function battleuser(user){
     totalpowerUser = randomNumber + user.power
     return totalpowerUser
 }
-// console.log(battleuser(user))
+console.log(battleuser(user))
 
 function battlemonster(monster){
     let totalpowerMonster = 0
@@ -19,7 +19,7 @@ function battlemonster(monster){
     totalpowerMonster = randomNumber + monster.power
     return totalpowerMonster
 }
-// console.log(battlemonster(monster))
+console.log(battlemonster(monster))
 
 function battle(user , monster){
     
@@ -43,4 +43,4 @@ let Gilbert = {
 let Goblin={
     power :3
 }
-console.log(battle(Gilbert , Goblin))
+// console.log(battle(Gilbert , Goblin))
