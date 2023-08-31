@@ -8,7 +8,7 @@ let data = {
     },
   },
   2:{
-    image: 'foto'
+    image: '../frontend/asset/merchent.svg'
   },
   3:{
     image: '../frontend/asset/goblin.svg',
@@ -35,7 +35,7 @@ let data = {
     },
   },
   6:{
-    image: 'foto'
+    image: '../frontend/asset/merchent.svg'
   },
   7:{
     image: '../frontend/asset/ork.svg',
@@ -54,7 +54,7 @@ let data = {
     },
   },
   9:{
-    image: 'foto'
+    image: '../frontend/asset/merchent.svg'
   },
   10:{
     image: '../frontend/asset/undead.svg',
@@ -81,7 +81,7 @@ let data = {
     }
   },
   13:{
-    image: 'foto'
+    image: '../frontend/asset/merchent.svg'
   },
   14:{
     image: '../frontend/asset/dragon.svg',
@@ -166,9 +166,6 @@ function render() {
       let power = document.getElementById("power");
       power.innerText = human.power;
 }
-
-var monsterPower = 0
-
 function clickImage(event) {
   if (event.target.tagName === "IMG") {
     let buttonId = event.target.parentElement.id;
@@ -181,102 +178,94 @@ function clickImage(event) {
         fightRight.appendChild(newImage);
         let powerBattleHTML = `
           <div class="powerBattle">
-            <div class="power">Power: ${data[obj]['monster']['power']}</div>
+            <div class="power">Power: <span id="powerMonster">${data[obj]['monster']['power']}</span></div>
             <div class="roll">Roll: <span id="rollMonster">0</span></div>
             <div class="totalPower">TotalPower: <span id="totalMonster">0</span></div>
           </div>
         `;
         fightRight.insertAdjacentHTML('beforeend', powerBattleHTML);
-        monsterPower = data[obj]["monster"]["power"]
+        let rollUsr = document.getElementById("rollUser")
+        rollUsr.innerHTML = 0
+        let powerMan = document.getElementById("totalUser")
+        powerMan.innerHTML = 0
         break
       }
     }
   }
 }
-console.log(monsterPower)
-/// INI FUNCTION BATTLE
-// let user = {
-//   power: 5
-// }
-// let monster={
-//   power :3
-// }
 
-function rollUser(){
+function randomRoll(){
   let randomNumber = Math.floor(Math.random()*6)+1
   return randomNumber
 }
 
-function rollMonster(){
-  let randomNumber = Math.floor(Math.random()*6)+1
-  return randomNumber
-}
-
-// function battle(user , monster){
-  
-//   let userPower =battleuser(user)
-//   let monsterPower =battlemonster(monster)
-  
-//   console.log(userPower , monsterPower )
-//   if(userPower > monsterPower){
-//       return "Menang"
-//   }else if(userPower < monsterPower){
-//       return "Kalah"
-//   }else if(userPower === monsterPower){
-//       return 'Draw'
-//   }
-// }
-
-let humanPower = human["power"]
-
-function totalUser(humanPower, userRoll) {
-  let totalHuman = humanPower + userRoll
-  return totalHuman
-}
-
-function totalMonster(monsterPower, monsterRoll) {
-  let totalMonster = monsterPower + monsterRoll
-  return totalMonster
+function totalPower(power, roll) {
+  let totalPower = power + roll
+  return totalPower
 }
 
 function combat(event) {
-  let monsterRoll = document.getElementById("rollMonster")
-  let monsterInput = rollMonster()
-  monsterRoll.innerHTML = monsterInput
-
-  let userRoll = document.getElementById("rollUser") 
-  let userInput = rollUser()
-  userRoll.innerHTML = userInput
+  let randomUser = randomRoll()
+  let randomMonster = randomRoll()
   
-  let userTotal = document.getElementById("totalUser")
-  userTotal.innerHTML = totalUser(humanPower, userInput)
+  // get roll value
+  let rollMan = document.getElementById("rollUser")
+  rollMan.innerHTML = randomUser
+  let rollMon = document.getElementById("rollMonster")
+  rollMon.innerHTML = randomMonster
 
-  let monsterTotal = document.getElementById("totalMonster") 
-  monsterTotal.innerHTML = totalMonster(monsterPower, monsterInput)
+  // get result totalPower
+  let getPowerMon = document.getElementById("powerMonster")
+  let powerMan = totalPower(human['power'],randomUser)
+  let powerMon = totalPower(Number(getPowerMon.innerText),randomMonster)
+  
+  // update totalPower
+  let updatePowerMan = document.getElementById("totalUser")
+  updatePowerMan.innerHTML = powerMan
+  let updatePowerMon = document.getElementById("totalMonster")
+  updatePowerMon.innerHTML = powerMon
 
-  let resultDisplay = document.getElementById("display")
-  let powerBattleHTML = `
-    
-      <div class="info">
-        <div>TOTAL HUMAN</div>
-        <div>vs</div>
-        <div>TOTAL GOBLIN</div>
-      </div>
-      <div class="result">
-        <div id="result">MENANG</div>
-        <div id="reward">GOLD + 5</div>
-      </div>
 
-`;  
-resultDisplay.insertAdjacentHTML('beforeend', powerBattleHTML);
-console.log(monsterRoll);
+
+
+
+
+  // let monsterRoll = document.getElementById("rollMonster")
+  // let monsterInput = rollMonster()
+  // monsterRoll.innerHTML = monsterInput
+
+  // let userRoll = document.getElementById("rollUser") 
+  // let userInput = rollUser()
+  // userRoll.innerHTML = userInput
+  
+  // let userTotal = document.getElementById("totalUser")
+  // userTotal.innerHTML = totalUser(humanPower, userInput)
+
+  // let monsterTotal = document.getElementById("totalMonster") 
+  // monsterTotal.innerHTML = totalMonster(monsterPower, monsterInput)
+
+  // let resultDisplay = document.getElementById("display")
+  // let powerBattleHTML = `
+  //     <div class="info">
+  //       <div>TOTAL HUMAN</div>
+  //       <div>vs</div>
+  //       <div>TOTAL GOBLIN</div>
+  //     </div>
+  //     <div class="result">
+  //       <div id="result">MENANG</div>
+  //       <div id="reward">GOLD + 5</div>
+  //     </div>
+  // `;  
+  // resultDisplay.insertAdjacentHTML('beforeend', powerBattleHTML);
+  // document.getElementById("battle").removeEventListener("click", combat);
+
 }
 /// INI FUNCTION BATTLE
 
 function main(){
   document.getElementById("toggleButton").addEventListener("click", clickImage);
   document.getElementById("battle").addEventListener("click", combat);
-  document.getElementById("powerUser").innerHTML = human["power"]
+  document.getElementById("powerUser").innerHTML = human['power']
 }
 
 

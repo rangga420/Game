@@ -122,3 +122,37 @@ body{
   flex-direction: column;
   gap: 50px;
 }
+
+.background-shop{
+  background-image: ('./asset/merchent.svg');
+}
+
+.right{
+  position: relative;
+}
+
+.button-potion{
+  position: absolute;
+  left: 40px;
+  bottom: 110px;
+  width: 175px;
+  height: 34px;
+  border-radius: 5px;
+  background: rgba(6, 6, 6, 0.50);
+  border: none;
+  color: white;
+  font-weight: 700;
+}
+
+.button-weapon{
+  position: absolute;
+  left: 40px;
+  bottom: 60px;
+  width: 175px;
+  height: 34px;
+  border-radius: 5px;
+  background: rgba(6, 6, 6, 0.50);
+  border: none;
+  color: white;
+  font-weight: 700;
+}
