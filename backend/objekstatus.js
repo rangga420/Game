@@ -1,11 +1,47 @@
-// let data = {
-//   1:{
-//     image: '../frontend/asset/shop.svg'
-//   }
-//   2:{
-//     image: 'foto'
-//   }
-// }
+let data = {
+  1:{
+    image: '../frontend/asset/shop.svg'
+  },
+  2:{
+    image: 'foto'
+  },
+  3:{
+    image: 'foto'
+  },
+  4:{
+    image: 'foto'
+  },
+  5:{
+    image: 'foto'
+  },
+  6:{
+    image: 'foto'
+  },
+  7:{
+    image: 'foto'
+  },
+  8:{
+    image: 'foto'
+  },
+  9:{
+    image: 'foto'
+  },
+  10:{
+    image: 'foto'
+  },
+  11:{
+    image: 'foto'
+  },
+  12:{
+    image: 'foto'
+  },
+  13:{
+    image: 'foto'
+  },
+  14:{
+    image: 'foto'
+  },
+}
 
 let human = {
     health: 10,
@@ -136,8 +172,12 @@ function main(){
   document.getElementById("toggleButton").addEventListener("click", handleImageButtonClick);
 }
 
+function battle() {
+
+}
+
 window.addEventListener("load", function() {
-  // render();
+  render();
   // addImage()
   main()
 });
