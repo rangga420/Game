@@ -94,7 +94,7 @@ let data = {
 
 
 let human = {
-    health: 10,
+    health: 2,
     power: 5,
     gold: 100
     // DEFAULT 20 GOLD
@@ -135,23 +135,6 @@ let boss = {
     power: 12,
 }
 //MONSTER--------------------------------
-
-//ITEM-----------------------------------
-let item = {
-    // PRICE 30 BIAR AWAL GAME GA LANGSUNG UPGRADE
-    senjata: {
-        price: 30,
-        extraPower: 1
-    },
-    potion: {
-        price: 10,
-        extraHealth: 1
-    }
-}
-//ITEM-----------------------------------
-
-
-
 function render() {
       let nama = prompt("Silahkan masukkan nama user")
       let userName = document.getElementById("userName");
@@ -164,7 +147,7 @@ function render() {
       gold.innerText = human.gold;
 
       let power = document.getElementById("power");
-      power.innerText = human.power;
+      power.innerText = human['power'];
 }
 function clickImage(event) {
   if (event.target.tagName === "IMG") {
@@ -186,9 +169,9 @@ function clickImage(event) {
           </div>
           `;
           addClass.insertAdjacentHTML('beforeend', powerBattleHTML);
-          let test = document.getElementById("weapon")
+          // let test = document.getElementById("weapon")
           document.getElementById("weapon").addEventListener("click", buyWeapon);
-          console.log(test)
+          document.getElementById("potion").addEventListener("click", buyPotion);
           break
         }
         newImage.src = data[obj]['image'];
@@ -235,6 +218,7 @@ function combat(event) {
   // get result totalPower
   let getPowerMon = document.getElementById("powerMonster")
   let powerMan = totalPower(human['power'],randomUser)
+  console.log(human['power'],'DARI COMBAT')
   let powerMon = totalPower(Number(getPowerMon.innerText),randomMonster)
   
   // update totalPower
@@ -244,20 +228,45 @@ function combat(event) {
   updatePowerMon.innerHTML = powerMon
 }
 
-// function buyPotion(event){
+function buyPotion(event){
+  console.log(human)
+  if(human['health'] >= 10){
+    alert(`Health sudah penuh (max 10)`)
+  }else if(human['gold'] < 10){
+    alert(`Gold anda sisa ${human['gold']}`)
+  }else if(human["gold"] >= 10){
+    human["health"] += 1
+    human["gold"] -= 10
+  }
 
-// }
+  let health = document.getElementById("health");
+  health.innerText = human['health'];
+  let gold = document.getElementById("gold");
+  gold.innerText = human['gold'];
+}
 
 function buyWeapon(event){
-  human['power']++
-  console.log(human['power'])
+  if(human['gold'] < 30){
+    alert(`Gold anda sisa ${human['gold']}`)
+  }
+
+  if (human["gold"] >= 30) {
+      human["power"] += 1
+      human["gold"] -= 30
+  }
+  document.getElementById("powerUser").innerHTML = human['power']
+  let power = document.getElementById("power");
+  power.innerText = human['power'];
+  let gold = document.getElementById("gold");
+  gold.innerText = human['gold'];
+
 }
 
 function main(){
+  render()
   document.getElementById("toggleButton").addEventListener("click", clickImage);
   document.getElementById("battle").addEventListener("click", combat);
-  document.getElementById("powerUser").innerHTML = human['power']
-  // document.getElementById("potion").addEventListener("click", buyPotion);
+  let test = document.getElementById("powerUser").innerHTML = human['power']
   // console.log(test)
   // document.getElementById("weapon").addEventListener("click", buyWeapon);
 }
