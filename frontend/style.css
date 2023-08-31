@@ -81,6 +81,13 @@ body{
   background: rgba(6, 6, 6, 0.50);
   gap: 20px;
 }
+
+.powerBattle{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
 .info{
   display: flex;
   flex-direction: column;
