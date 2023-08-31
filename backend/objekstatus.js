@@ -94,9 +94,9 @@ let data = {
 
 
 let human = {
-    health: 2,
-    power: 5,
-    gold: 100
+    health: 10, // DEFAULT HEALTH 10
+    power: 100, // DEFAULT POWER 5
+    gold: 20 // DEFAULT GOLD 20
     // DEFAULT 20 GOLD
 }
 
@@ -149,6 +149,14 @@ function render() {
       let power = document.getElementById("power");
       power.innerText = human['power'];
 }
+let monsterBattle = {
+  rewardGold: 0,
+}
+
+let winner = {
+  bos: false,
+  key: '',
+}
 function clickImage(event) {
   if (event.target.tagName === "IMG") {
     let buttonId = event.target.parentElement.id;
@@ -157,6 +165,8 @@ function clickImage(event) {
     for(let obj in data){
       let newImage = document.createElement("img");
       if (buttonId == obj) {
+        winner['key'] = obj
+        winner['bos'] = true
         let merc = data[obj]['image'].split('/')[3].split('.')[0]
         if(merc === 'merchent'){
           let addClass = document.getElementById('fight-right')
@@ -176,7 +186,6 @@ function clickImage(event) {
         }
         newImage.src = data[obj]['image'];
         fightRight.appendChild(newImage);
-        console.log()
         let powerBattleHTML = `
           <div class="powerBattle">
             <div class="power">Power: <span id="powerMonster">${data[obj]['monster']['power']}</span></div>
@@ -184,6 +193,7 @@ function clickImage(event) {
             <div class="totalPower">TotalPower: <span id="totalMonster">0</span></div>
           </div>
         `;
+        monsterBattle['rewardGold'] = data[obj]['monster']['rewardGold']
         fightRight.insertAdjacentHTML('beforeend', powerBattleHTML);
         let rollUsr = document.getElementById("rollUser")
         rollUsr.innerHTML = 0
@@ -205,6 +215,13 @@ function totalPower(power, roll) {
   return totalPower
 }
 
+
+let beforeCombat = {
+  powerHumanTotal: 0,
+  powerMonsterTotal: 0,
+  status: false,
+
+}
 function combat(event) {
   let randomUser = randomRoll()
   let randomMonster = randomRoll()
@@ -218,7 +235,6 @@ function combat(event) {
   // get result totalPower
   let getPowerMon = document.getElementById("powerMonster")
   let powerMan = totalPower(human['power'],randomUser)
-  console.log(human['power'],'DARI COMBAT')
   let powerMon = totalPower(Number(getPowerMon.innerText),randomMonster)
   
   // update totalPower
@@ -226,7 +242,71 @@ function combat(event) {
   updatePowerMan.innerHTML = powerMan
   let updatePowerMon = document.getElementById("totalMonster")
   updatePowerMon.innerHTML = powerMon
+  if(powerMan > powerMon){
+    alert('Menang')
+    human['gold'] += monsterBattle['rewardGold']
+    let gold = document.getElementById("gold");
+    gold.innerText = human['gold'];
+    if(winner['key'] === '14' && winner['bos']){
+      alert('KAMU MENANG DI PERMAINAN INI !!!!!!!!!1!!!!!!!!')
+      // RESET TO DEFAULT HEALTH
+      let health = document.getElementById("health");
+      human['health'] = 10
+      health.innerText = human['health'];
+
+      // RESET TO DEFAULT POWER
+      let power = document.getElementById("power");
+      human['power'] = 5
+      power.innerText = human['power'];
+
+      // RESET TO DEFAULT GOLD
+      let gold = document.getElementById("gold");
+      human['gold'] = 20
+      gold.innerText = human['gold'];
+    }
+  }else if(powerMan < powerMon){
+    alert('Kalah')
+    human['health'] -= powerMon - powerMan
+    let power = document.getElementById("health");
+    power.innerText = human['health'];
+  }else if(powerMan === powerMon){
+    alert('Draw')
+  }
+  if(human['health'] <= 0){
+    alert('Game Over')
+    // RESET TO DEFAULT HEALTH
+    let health = document.getElementById("health");
+    human['health'] = 10
+    health.innerText = human['health'];
+
+    // RESET TO DEFAULT POWER
+    let power = document.getElementById("power");
+    human['power'] = 5
+    power.innerText = human['power'];
+
+    // RESET TO DEFAULT GOLD
+    let gold = document.getElementById("gold");
+    human['gold'] = 20
+    gold.innerText = human['gold'];
+  }
 }
+
+// function combatResult(powerMan, powerMon){
+//   if(status){
+//   }
+  // beforeCombat['powerHumanTotal'] = powerMan
+  // beforeCombat['powerMonsterTotal'] = powerMon
+  // beforeCombat['status'] = true
+  // if(beforeCombat['status']){
+  //   if(powerMan > powerMon){
+  //     alert('Menang')
+  //   }else if(powerMan < powerMon){
+  //     alert('Kalah')
+  //   }else if(powerMan === powerMon){
+  //     alert('Draw')
+  //   }
+  // }
+// }
 
 function buyPotion(event){
   console.log(human)
@@ -266,7 +346,7 @@ function main(){
   render()
   document.getElementById("toggleButton").addEventListener("click", clickImage);
   document.getElementById("battle").addEventListener("click", combat);
-  let test = document.getElementById("powerUser").innerHTML = human['power']
+  document.getElementById("powerUser").innerHTML = human['power']
   // console.log(test)
   // document.getElementById("weapon").addEventListener("click", buyWeapon);
 }
