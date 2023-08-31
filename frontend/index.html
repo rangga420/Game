@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+    <div class="container">
     <div class="table-main">
       <div class="table-game">
         <div class="monster-top">
@@ -30,8 +30,11 @@
         </div>
         <div class="monster-mid">
           <div class="fight">
-            <div class="fight-left"></div>
-            <div class="fight-right"></div>
+            <div class="fight-left">
+              <img src="./asset/user.svg" alt="">
+              <span>Power</span>
+            </div>
+            <div class="fight-right" id="fight-right"></div>
           </div>
           <div class="monster-left">
             <div class="grid-9 size-left">
@@ -48,15 +51,16 @@
             </div>
           </div>
         </div>
-        <div class="monster-top">
+        <div class="monster-top" id="toggleButton">
           <div class="grid-1 size-grid">
             <button id="1">
               <img src="../frontend/asset/hutan.svg" alt="">
             </button>
-        
           </div>
-          <div class="grid-2 size-grid">
-            <img src="../frontend/asset/shop.svg" alt="">
+          <div class="grid-2 size-grid" id="toggleButton2">
+            <button id="2">
+              <img src="../frontend/asset/shop.svg" alt="">
+            </button>
           </div>
           <div class="grid-3 size-grid">
             <img src="../frontend/asset/hutan.svg" alt="">
