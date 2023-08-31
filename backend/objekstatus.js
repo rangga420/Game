@@ -153,7 +153,7 @@ let found = false
 //   }
 // });
 
-function handleImageButtonClick(event) {
+function clickImage(event) {
   if (event.target.tagName === "IMG") {
     let buttonId = event.target.parentElement.id;
     let fightRight = document.getElementById('fight-right');
@@ -168,8 +168,13 @@ function handleImageButtonClick(event) {
   }
 }
 
+// function clickButton(){
+//   let a=document.getElementById('')
+// }
+
 function main(){
-  document.getElementById("toggleButton").addEventListener("click", handleImageButtonClick);
+  document.getElementById("toggleButton").addEventListener("click", clickImage);
+  // render();
 }
 
 function battle() {
@@ -177,8 +182,6 @@ function battle() {
 }
 
 window.addEventListener("load", function() {
-  render();
-  // addImage()
   main()
 });
 
