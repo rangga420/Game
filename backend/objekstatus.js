@@ -1,47 +1,97 @@
 let data = {
   1:{
-    image: '../frontend/asset/goblin.svg'
+    image: '../frontend/asset/goblin.svg',
+    goblin: {
+        power: 2,
+        rewardGold: 5,
+        rewardPower: 1
+    },
   },
   2:{
     image: 'foto'
   },
   3:{
-    image: '../frontend/asset/goblin.svg'
+    image: '../frontend/asset/goblin.svg',
+    monster: {
+        power: 2,
+        rewardGold: 5,
+        rewardPower: 1
+    },
   },
   4:{
-    image: '../frontend/asset/goblin.svg'
+    image: '../frontend/asset/goblin.svg',
+    monster: {
+        power: 2,
+        rewardGold: 5,
+        rewardPower: 1
+    },
   },
   5:{
-    image: '../frontend/asset/goblin.svg'
+    image: '../frontend/asset/goblin.svg',
+    monster: {
+        power: 2,
+        rewardGold: 5,
+        rewardPower: 1
+    },
   },
   6:{
     image: 'foto'
   },
   7:{
-    image: '../frontend/asset/ork.svg'
+    image: '../frontend/asset/ork.svg',
+    monster: {
+        power: 5,
+        rewardGold: 7,
+        rewardPower: 2
+    },
   },
   8:{
-    image: '../frontend/asset/ork.svg'
+    image: '../frontend/asset/ork.svg',
+    monster: {
+        power: 5,
+        rewardGold: 7,
+        rewardPower: 2
+    },
   },
   9:{
     image: 'foto'
   },
   10:{
-    image: '../frontend/asset/undead.svg'
+    image: '../frontend/asset/undead.svg',
+    monster: {
+        power: 7,
+        rewardGold: 10,
+        rewardPower: 4
+    }
   },
   11:{
-    image: '../frontend/asset/undead.svg'
+    image: '../frontend/asset/undead.svg',
+    monster: {
+        power: 7,
+        rewardGold: 10,
+        rewardPower: 4
+    }
   },
   12:{
-    image: '../frontend/asset/undead.svg'
+    image: '../frontend/asset/undead.svg',
+    monster: {
+        power: 7,
+        rewardGold: 10,
+        rewardPower: 4
+    }
   },
   13:{
     image: 'foto'
   },
   14:{
-    image: '../frontend/asset/dragon.svg'
+    image: '../frontend/asset/dragon.svg',
+    monster: {
+        health: 15,
+        power: 12
+    }
   },
 }
+
 
 let human = {
     health: 10,
@@ -125,30 +175,26 @@ function clickImage(event) {
     fightRight.innerHTML = '';
     for(let obj in data){
       let newImage = document.createElement("img");
+      console.log(buttonId === obj,buttonId)
       if (buttonId === obj) {
-        console.log(obj)
         newImage.src = data[obj]['image'];
         fightRight.appendChild(newImage);
+        console.log('POWER@@@@@@@@',data[obj]['monster']['power'])
         let powerBattleHTML = `
           <div class="powerBattle">
-            <div class="power">Power: 0</div>
+            <div class="power">Power: ${data[obj]['monster']['power']}</div>
             <div class="roll">Roll: 0</div>
             <div class="totalPower">TotalPower: 0</div>
           </div>
         `;
-      fightRight.insertAdjacentHTML('beforeend', powerBattleHTML); 
+        fightRight.insertAdjacentHTML('beforeend', powerBattleHTML); 
       }
     }
   }
 }
 
-// function clickButton(){
-//   let a=document.getElementById('')
-// }
-
 function main(){
   document.getElementById("toggleButton").addEventListener("click", clickImage);
-  // render();
 }
 
 function battle() {
