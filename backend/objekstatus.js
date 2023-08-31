@@ -124,7 +124,6 @@ function clickImage(event) {
     let fightRight = document.getElementById('fight-right');
     fightRight.innerHTML = '';
     for(let obj in data){
-      
       let newImage = document.createElement("img");
       if (buttonId === obj) {
         console.log(obj)
@@ -132,10 +131,6 @@ function clickImage(event) {
         fightRight.appendChild(newImage);    
       }
     }
-//  else if (buttonId === "2") {
-//     //   newImage.src = "../frontend/asset/hutan.svg";
-//     // }
-
   }
 }
 
