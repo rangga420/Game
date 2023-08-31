@@ -1,11 +1,11 @@
-let data = {
-  1:{
-    image: '../frontend/asset/shop.svg'
-  }
-  2:{
-    image: 'foto'
-  }
-}
+// let data = {
+//   1:{
+//     image: '../frontend/asset/shop.svg'
+//   }
+//   2:{
+//     image: 'foto'
+//   }
+// }
 
 let human = {
     health: 10,
