@@ -1,7 +1,7 @@
 let data = {
   1:{
     image: '../frontend/asset/goblin.svg',
-    goblin: {
+    monster: {
         power: 2,
         rewardGold: 5,
         rewardPower: 1
@@ -175,11 +175,9 @@ function clickImage(event) {
     fightRight.innerHTML = '';
     for(let obj in data){
       let newImage = document.createElement("img");
-      console.log(buttonId === obj,buttonId)
-      if (buttonId === obj) {
+      if (buttonId == obj) {
         newImage.src = data[obj]['image'];
         fightRight.appendChild(newImage);
-        console.log('POWER@@@@@@@@',data[obj]['monster']['power'])
         let powerBattleHTML = `
           <div class="powerBattle">
             <div class="power">Power: ${data[obj]['monster']['power']}</div>
@@ -187,7 +185,8 @@ function clickImage(event) {
             <div class="totalPower">TotalPower: 0</div>
           </div>
         `;
-        fightRight.insertAdjacentHTML('beforeend', powerBattleHTML); 
+        fightRight.insertAdjacentHTML('beforeend', powerBattleHTML);
+        break
       }
     }
   }
