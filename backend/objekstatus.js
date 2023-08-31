@@ -95,7 +95,7 @@ let data = {
 
 let human = {
     health: 10, // DEFAULT HEALTH 10
-    power: 100, // DEFAULT POWER 5
+    power: 5, // DEFAULT POWER 5
     gold: 20 // DEFAULT GOLD 20
     // DEFAULT 20 GOLD
 }
