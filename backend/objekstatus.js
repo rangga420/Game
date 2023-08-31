@@ -128,7 +128,15 @@ function clickImage(event) {
       if (buttonId === obj) {
         console.log(obj)
         newImage.src = data[obj]['image'];
-        fightRight.appendChild(newImage);    
+        fightRight.appendChild(newImage);
+        let powerBattleHTML = `
+          <div class="powerBattle">
+            <div class="power">Power: 0</div>
+            <div class="roll">Roll: 0</div>
+            <div class="totalPower">TotalPower: 0</div>
+          </div>
+        `;
+      fightRight.insertAdjacentHTML('beforeend', powerBattleHTML); 
       }
     }
   }
